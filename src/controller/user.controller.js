@@ -12,6 +12,16 @@ const handleRegisterUser = async (req, res) => {
 }
 
 
+const handleLoginUser = async (req, res) => {
+    const userData = req.body;
+
+    const response = await UserService.loginUser(userData);
+
+    res.status(response.status).json(response);
+}
+
+
 module.exports = {
-    handleRegisterUser
+    handleRegisterUser,
+    handleLoginUser
 }
